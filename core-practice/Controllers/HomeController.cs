@@ -22,22 +22,9 @@ namespace core_practice.Controllers {
     }
 
     public async Task<IActionResult> Index() {
-      return View(await _db.Users.ToListAsync());
-    }
-
-    public IActionResult Create() {
-      return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Create(User user) {
-      _db.Users.Add(user);
-      await _db.SaveChangesAsync();
-      return RedirectToAction(nameof(Index));
-    }
-
-    public IActionResult Privacy() {
-      return View();
+      //return View(await _db.Products.ToListAsync());
+      var m = await _db.CategoryProducts.Include(p => p.Products).ToListAsync();
+      return View(m);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

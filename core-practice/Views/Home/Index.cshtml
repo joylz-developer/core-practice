@@ -1,8 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<core_practice.Models.CategoryProduct>
+
+@{
+  ViewData["Title"] = "Home Page";
+  Layout = "_LayoutHome";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@foreach (var item in Model) {
+
+    <div class="container">
+        <div class="our-grid">
+            <div class="row">
+                <div class="center-block-vert col-10 push-1 pull-1">
+                    <h4 class="main-heading">@Html.DisplayFor(modelItem => item.Name)</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container main-dark-back">
+        <div class="our-grid">
+            <div class="row">
+                <div class="main-block center-block-vert col-10 push-1 pull-1">
+                    @foreach (var pr in item.Products) {
+                        <div class="card-con">
+                            <div class="card clearfix">
+                                <div class="card-img">
+                                    <img src="~/images/Xiaomi-Redmi-Note-8-Pro-6-53-Inch-6GB-64GB-Green-876009-.jpg" alt="">
+                                </div>
+                                <div class="card-info">
+                                    <div class="card-info-top">
+                                        <div class="card-info-price">
+                                            <h4>@Html.DisplayFor(modelItem => pr.Price)р.</h4>
+                                            @if (pr.OldPrice != null) {
+                                                <h6>@Html.DisplayFor(modelItem => pr.OldPrice)р.</h6>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="card-info-details">
+                                        <p>Xiaomi</p>
+                                        <h5>@Html.DisplayFor(modelItem => pr.Name)</h5>
+                                    </div>
+                                </div>
+                                <a href="">
+                                    <div class="card-info-but">
+                                        <p>More details</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

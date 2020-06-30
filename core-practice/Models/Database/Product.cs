@@ -9,7 +9,7 @@ namespace core_practice.Models {
     public int Id { get; set; }
     public string Name { get; set; }
     public float Price { get; set; }
-    public float OldPrice { get; set; }
+    public float? OldPrice { get; set; }
     [Column(TypeName = "datetime")]
     public DateTime AddingDate { get; set; }
 

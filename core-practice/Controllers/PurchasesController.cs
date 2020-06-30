@@ -43,8 +43,8 @@ namespace core_practice.Controllers {
 
     // GET: Purchases/Create
     public IActionResult Create() {
-      ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
-      ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+      ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name");
+      ViewData["UserId"] = new SelectList(_context.Users, "Id", "Name");
       ViewData["Status"] = new SelectList(Enum.GetValues(typeof(EStatusPurchase)).Cast<EStatusPurchase>().ToList());
       ViewData["Datatime"] = Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-ddTHH:mm");
       return View();
@@ -61,8 +61,8 @@ namespace core_practice.Controllers {
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
       }
-      ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", purchase.ProductId);
-      ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id", purchase.UserId);
+      ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", purchase.ProductId);
+      ViewData["UserId"] = new SelectList(_context.Users, "Id", "Name", purchase.UserId);
       ViewData["Status"] = new SelectList(Enum.GetValues(typeof(EStatusPurchase)).Cast<EStatusPurchase>().ToList(), purchase.Status);
       return View(purchase);
     }
