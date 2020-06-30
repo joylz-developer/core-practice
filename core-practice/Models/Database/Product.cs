@@ -13,7 +13,7 @@ namespace core_practice.Models {
     [Column(TypeName = "datetime")]
     public DateTime AddingDate { get; set; }
 
-    public int? CategoryProductId { get; set; }
+    public int CategoryProductId { get; set; }
     public CategoryProduct CategoryProduct { get; set; }
 
     public List<Purchase> Purchase { get; set; }

@@ -41,6 +41,7 @@ namespace core_practice.Controllers {
     // GET: Products/Create
     public IActionResult Create() {
       ViewData["CategoryProductId"] = new SelectList(_context.CategoryProducts, "Id", "Id");
+      ViewData["Datatime"] = Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-ddTHH:mm");
       return View();
     }
 

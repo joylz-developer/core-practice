@@ -1,17 +1,9 @@
 ﻿@model core_practice.Models.CategoryProduct
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Category Product - Create";
+    Layout = "_Layout";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
 
 <h4>CategoryProduct</h4>
 <hr />
@@ -38,5 +30,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>

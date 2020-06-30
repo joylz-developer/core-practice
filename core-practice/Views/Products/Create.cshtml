@@ -1,17 +1,9 @@
 ﻿@model core_practice.Models.Product
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Product - Create";
+    Layout = "_Layout";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
 
 <h4>Product</h4>
 <hr />
@@ -35,13 +27,13 @@
                 <span asp-validation-for="OldPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AddingDate" class="control-label"></label>
-                <input asp-for="AddingDate" class="form-control" />
+                <label asp-for="AddingDate" class="control-label" hidden></label>
+                <input asp-for="AddingDate" class="form-control"  value="@ViewBag.Datatime" hidden  />
                 <span asp-validation-for="AddingDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryProductId" class="control-label"></label>
-                <select asp-for="CategoryProductId" class ="form-control" asp-items="ViewBag.CategoryProductId"></select>
+                <select asp-for="CategoryProductId" class="form-control" asp-items="ViewBag.CategoryProductId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -57,5 +49,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>

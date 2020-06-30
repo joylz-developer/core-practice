@@ -14,7 +14,7 @@ namespace core_practice.Database {
 
     public BaseContext(DbContextOptions<BaseContext> options)
         : base(options) {
-      // Database.EnsureDeleted();
+      //Database.EnsureDeleted();
       Database.EnsureCreated();
     }
   }
